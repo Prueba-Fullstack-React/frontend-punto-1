@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl"            : "src/components",
+    "declaration"        : true,
+    "declarationDir"     : "types",
+    "emitDeclarationOnly": true,
+    "noEmit"             : false
+  },
+  "extends": "../../tsconfig.json",
+  "include": ["src", "setupTests.ts"],
+  "exclude": ["src/**/__tests__/"],
+}

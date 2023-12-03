@@ -1,0 +1,74 @@
+{
+  "name": "frontendtest",
+  "private": true,
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "engines": {
+    "node": "^16.17.0"
+  },
+  "scripts": {
+    "build": "lerna run build",
+    "build:ci": "lerna run build:ci",
+    "start": "lerna run start",
+    "lint": "lerna run lint",
+    "test": "lerna run test",
+    "test:ci": "lerna run test:ci"
+  },
+  "standardizedDependencies": [
+    "@babel/core",
+    "@babel/preset-env",
+    "@babel/preset-react",
+    "@babel/preset-typescript",
+    "@rollup/plugin-commonjs",
+    "@rollup/plugin-node-resolve",
+    "@rollup/plugin-typescript",
+    "@types/react",
+    "@types/react-dom",
+    "html-webpack-plugin",
+    "eslint",
+    "eslint-loader",
+    "react",
+    "react-scripts",
+    "react-dom",
+    "rollup",
+    "rollup-plugin-dts",
+    "sass-loader",
+    "style-loader",
+    "typescript",
+    "ts-loader",
+    "tslib",
+    "webpack",
+    "webpack-dev-server",
+    "react-hook-form",
+    "@testing-library/react"
+  ],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.1",
+    "dotenv-webpack": "^8.0.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.3",
+    "lerna": "^4.0.0",
+    "ts-loader": "^9.5.1",
+    "url-loader": "^4.1.1",
+    "use-yarn": "^2.2.0"
+  },
+  "resolutions": {
+    "@types/react": "18.2.40",
+    "@types/react-dom": "18.2.17",
+    "react": "18.2.0",
+    "eslint": "7.32.0",
+    "react-dom": "18.2.0"
+  },
+  "dependencies": {
+    "@frontend/components": "^1.0.0"
+  }
+}
