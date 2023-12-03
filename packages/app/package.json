@@ -19,7 +19,7 @@
   "scripts": {
     "start:prod": "set NODE_ENV=production && webpack-dev-server --mode production",
     "start": "set NODE_ENV=development && webpack-dev-server --mode development",
-    "build": "set NODE_ENV=development && set DISABLE_ESLINT_PLUGIN=true && webpack --mode development",
+    "build": "set NODE_ENV=production && set DISABLE_ESLINT_PLUGIN=true && webpack --mode production",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
