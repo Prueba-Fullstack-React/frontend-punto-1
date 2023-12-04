@@ -1,3 +1,5 @@
+const apiURL = process.env.REACT_APP_API_URL;
+
 export const urlServer = {
-  url: 'http://localhost:3001/',
+  url: apiURL,
 };

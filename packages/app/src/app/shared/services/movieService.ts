@@ -71,11 +71,9 @@ export interface OneMovieResponse {
 
 export const getMovies = async (page: number): Promise<MovieDBResponse> => {
   try {
-    console.log('MOVIE REQUEST!');
     const response = await fetch(
       `https://api.themoviedb.org/3/trending/all/day?api_key=${accessKey}&page=${page}`
     );
-    console.log(response);
     const data = await response.json();
     return data;
   } catch (error) {
