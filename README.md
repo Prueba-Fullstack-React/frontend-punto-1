@@ -9,12 +9,12 @@ Este proyecto utiliza Lerna para gestionar múltiples paquetes. Sigue estos paso
 1. Clona el repositorio:
 
    ```
-   git clone <URL_DEL_REPOSITORIO>
+   git clone <URL_DEL_REPOSITORIO>(https://github.com/Prueba-Fullstack-React/frontend-punto-1.git)
    ```
 2. Ingresa al directorio del repositorio:
 
    ```
-   cd <NOMBRE_DEL_DIRECTORIO>
+   cd frontend-punto-1
    ```
 
 3. Instala las dependencias:
