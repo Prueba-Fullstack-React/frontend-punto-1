@@ -1,5 +1,5 @@
 // services/movieService.ts
-const accessKey = process.env.REACT_APP_MOVIE_DB_KEY;
+import { urlServer } from '../config/config';
 
 export interface Movie {
   adult: boolean;
@@ -71,9 +71,8 @@ export interface OneMovieResponse {
 
 export const getMovies = async (page: number): Promise<MovieDBResponse> => {
   try {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/trending/all/day?api_key=${accessKey}&page=${page}`
-    );
+    const response = await fetch(`${urlServer.url}api/v1/movies/${page}`);
+
     const data = await response.json();
     return data;
   } catch (error) {
@@ -83,9 +82,7 @@ export const getMovies = async (page: number): Promise<MovieDBResponse> => {
 
 export const getMovie = async (id: number): Promise<OneMovieResponse> => {
   try {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${accessKey}`
-    );
+    const response = await fetch(`${urlServer.url}api/v1/movies/id/${id}`);
 
     const data = await response.json();
     return data;

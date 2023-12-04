@@ -63,7 +63,6 @@ const Tasks: React.FC<TasksProps> = () => {
   const fetchData = async (page: number, pageSize: number): Promise<void> => {
     try {
       const data = await getTasks({ page, pageSize }, storedToken);
-      console.log('data ', data);
       setTasks(data);
     } catch (error) {
       // Handle error

@@ -40,7 +40,6 @@ const MultipleMovies: React.FC<MultipleMoviesProps> = () => {
     try {
       const data = await getMovies(page);
       setMovies(data.results);
-      console.log('Movies ', data.results);
       setTotalMovies(data.total_results);
     } catch (error) {
       // Handle error

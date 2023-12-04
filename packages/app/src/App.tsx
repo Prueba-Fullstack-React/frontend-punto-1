@@ -28,11 +28,6 @@ const RoutesAndTheme: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  console.log('location.pathname ', location.pathname);
-  console.log('storedToken ', storedToken);
-
-  console.log(history);
-
   useEffect(() => {
     const checkTokenAndLogin = async (): Promise<void> => {
       if (storedToken) {

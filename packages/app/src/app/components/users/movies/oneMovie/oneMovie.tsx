@@ -32,7 +32,6 @@ const OneMovie: React.FC<OneMovieProps> = () => {
     try {
       const data = await getMovie(id);
       setMovie(data);
-      console.log('MOVIE ', data);
     } catch (error) {
       // Handle error
     }
