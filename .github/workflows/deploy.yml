@@ -19,7 +19,7 @@ jobs:
           node-version: 16.17.0
 
       - name: Create .env File
-        run: echo "REACT_APP_SERVER_URL=${{ secrets.SERVER_URL }}" > packages/app/.env
+        run: echo "REACT_APP_API_URL=${{ secrets.SERVER_URL }}" > packages/app/.env
 
       - name: Install Dependencies
         run: npm install
