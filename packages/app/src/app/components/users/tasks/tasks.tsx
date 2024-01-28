@@ -52,6 +52,7 @@ const Tasks: React.FC<TasksProps> = () => {
   const [openModal, setOpenModal] = useState(false);
   const [newTaskTitle, setNewTaskTitle] = useState('');
   const [newTaskState, setNewTaskState] = useState('activo'); // Added state for new task state
+  const [totalNumberOfTasks, setTotalNumberOfTasks] = useState<number>(1);
 
   const [storedToken, setStoredToken] = useLocalStorage('authToken', '');
 
@@ -63,7 +64,8 @@ const Tasks: React.FC<TasksProps> = () => {
   const fetchData = async (page: number, pageSize: number): Promise<void> => {
     try {
       const data = await getTasks({ page, pageSize }, storedToken);
-      setTasks(data);
+      setTasks(data.tasks);
+      setTotalNumberOfTasks(data.count);
     } catch (error) {
       // Handle error
     }
@@ -150,6 +152,8 @@ const Tasks: React.FC<TasksProps> = () => {
   const goToMoviesPage = (): void => {
     navigate('/movies');
   };
+
+  const totalPages = Math.ceil(totalNumberOfTasks / rowsPerPage);
 
   return (
     <ScreenBackground>
@@ -244,11 +248,15 @@ const Tasks: React.FC<TasksProps> = () => {
       <TablePagination
         rowsPerPageOptions={[5, 10, 25]}
         component="div"
-        count={tasks.length}
+        count={totalNumberOfTasks}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
+        labelRowsPerPage="Filas por página"
+        labelDisplayedRows={({ from, to, count }) => `${from}-${to} de ${count}`}
+        showFirstButton
+        showLastButton
       />
 
       {/* Modal for creating a new task */}

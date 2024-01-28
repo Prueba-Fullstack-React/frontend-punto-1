@@ -7,6 +7,10 @@ interface Task {
   state: string;
 }
 
+interface GetTasksResponse {
+  tasks: Task[];
+  count: number;
+}
 interface GetTasksParams {
   page: number;
   pageSize: number;
@@ -15,7 +19,7 @@ interface GetTasksParams {
 export const getTasks = async (
   params: GetTasksParams,
   authToken?: string
-): Promise<Task[]> => {
+): Promise<GetTasksResponse> => {
   try {
     const { page, pageSize } = params;
     const headers = new Headers({
