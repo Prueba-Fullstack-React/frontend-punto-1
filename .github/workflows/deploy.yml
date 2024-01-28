@@ -24,6 +24,9 @@ jobs:
       - name: Lerna Build
         run: lerna run build
 
+      - name: Create .env File
+        run: echo "REACT_APP_SERVER_URL=${{ secrets.SERVER_URL }}" > packages/app/.env
+
       - name: Deploy to S3
         run: |
           set -x
