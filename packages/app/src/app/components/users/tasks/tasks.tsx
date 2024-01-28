@@ -1,38 +1,27 @@
-import React, { useEffect, useState } from 'react';
 import {
-  Button,
-  ScreenBackground,
-  Modal,
-  Box,
-  TextField,
-  Checkbox,
-  FormControlLabel,
+  Box, Button, Checkbox,
+  FormControlLabel, Modal, ScreenBackground, TextField
 } from '@frontend/components';
+import AddIcon from '@mui/icons-material/Add';
+import DeleteIcon from '@mui/icons-material/Delete';
 import {
-  Table,
+  Radio, RadioGroup, Table,
   TableBody,
   TableCell,
   TableContainer,
-  TableHead,
-  TableRow,
-  TablePagination,
-  RadioGroup,
-  Radio,
-  useTheme,
+  TableHead, TablePagination, TableRow, useTheme
 } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
-import {
-  getTasks,
-  updateTask,
-  createTask,
-  deleteTask,
-} from '../../../shared/services/tasksService';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ToggleThemeComponent } from '../../../shared/components/toggleTheme.component';
-import { withRedirectIfBlank } from '../../../withRedirectIfBlank';
 import { useLocalStorage } from '../../../shared/hooks/useLocalStorage';
 import { useLoginContext } from '../../../shared/hooks/useLoginStatus';
-import { useNavigate } from 'react-router-dom';
-import DeleteIcon from '@mui/icons-material/Delete';
+import {
+  createTask,
+  deleteTask, getTasks,
+  updateTask
+} from '../../../shared/services/tasksService';
+import { withRedirectIfBlank } from '../../../withRedirectIfBlank';
 
 interface Task {
   id: number;
@@ -136,7 +125,7 @@ const Tasks: React.FC<TasksProps> = () => {
       setNewTaskState('activo'); // Reset new task state
       handleCloseModal();
     } catch (error) {
-      // Handle error
+      alert("Recuerda que la tarea debe contener como mínimo 5 letras.");
     }
   };
 
@@ -152,8 +141,6 @@ const Tasks: React.FC<TasksProps> = () => {
   const goToMoviesPage = (): void => {
     navigate('/movies');
   };
-
-  const totalPages = Math.ceil(totalNumberOfTasks / rowsPerPage);
 
   return (
     <ScreenBackground>
